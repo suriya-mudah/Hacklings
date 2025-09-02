@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Verdana'; /* Choose a unique name for your font */
+  src: url('/assets/fonts/verdana-font-family/verdana.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Helps prevent invisible text during loading */
+}
