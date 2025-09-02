@@ -1,0 +1,76 @@
+.login-container {
+    width: 100%;
+    transform: translateY(calc(50vh - 50%));
+    display: flex;
+    flex-flow: column nowrap;
+    font-family: 'Verdana', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 1rem;
+}
+.text-container p {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+
+// Login page button overrides - local to the login page
+.btn-container app-button {
+    // primary button overrides
+    --button-bg: #0057b8; // dark blue
+    --button-color: #ffffff;
+    border-radius: 8px;
+    font-weight: 600;
+    --button-font-size: 1.3rem;
+    box-shadow: 0 6px 18px rgba(0, 86, 166, 0.12);
+}
+
+// make the button full width on small screens
+@media (max-width: 480px) {
+	.btn-container app-button {
+		--button-bg: #004499;
+		display: block;
+		width: 100%;
+	}
+    .login-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    font-family: 'Verdana', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    justify-content: center;
+    align-items: center;
+    // Disable the translate centering on small screens where we use full
+    // height so the layout remains predictable.
+    transform: none;
+}
+    .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0.5rem;
+    }
+    .text-container p {
+    font-size: 1.3rem;
+    margin: 0.3rem 0;
+    }
+}
+
+.btn-container app-button[variant="ghost"] {
+    --button-ghost-color: #0057b8;
+    --button-ghost-outline: rgba(0, 87, 184, 0.18);
+}
+
+// Example: override the ghost variant for small links inside the login card
+.btn-container app-button[variant="ghost"] {
+	--button-ghost-color: #0057b8;
+	--button-ghost-outline: rgba(0, 87, 184, 0.18);
+}

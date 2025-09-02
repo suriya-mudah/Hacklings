@@ -1,0 +1,25 @@
+/* Load Verdana from the Angular assets folder. Use absolute /assets path so the
+   dev server and production build both resolve the files correctly. */
+@font-face {
+  font-family: 'Verdana';
+  src: url('/assets/fonts/verdana-font-family/verdana.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Verdana';
+  src: url('/assets/fonts/verdana-font-family/verdana-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Verdana';
+  src: url('/assets/fonts/verdana-font-family/verdana-bold-italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}

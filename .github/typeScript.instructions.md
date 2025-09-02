@@ -47,3 +47,15 @@ Authoritative references
 - RxJS migration notes: https://rxjs.dev/guide/migration
 
 If you want, run a repo-wide scan now to list candidate deprecated usages and propose automatic fixes for trivial replacements.
+
+Auto-scan summary (performed automatically)
+- Scanned tokens: `TestBed.get(`, `loadChildren:` string syntax, `ComponentFactoryResolver`, `entryComponents`, `ANALYZE_FOR_ENTRY_COMPONENTS`, `BrowserModule.withServerTransition`, `ModuleWithProviders` without generic, `@Component.moduleId`, `PlatformRef.bootstrapModuleFactory`.
+- Result: No occurrences found in repository source files requiring an automatic one-to-one replacement.
+- Action: No code changes applied. If you want, I can run `ng version` and re-run this scan as part of a CI check and/or open a PR with suggested fixes if any new deprecated usages appear.
+
+Note: `*ngIf` deprecation guidance
+- This repository treats `*ngIf` as deprecated in favor of non-structural alternatives in surfaced templates (for example using `[hidden]`, CSS utilities, or component-level logic) to preserve template shape for SSR/hydration and to avoid DOM reflow where possible.
+- Example replacement:
+  - Deprecated: `<span *ngIf="label">{{ label }}</span>`
+  - Preferred: `<span [hidden]="!label" aria-hidden="{{ !label }}">{{ label }}</span>`
+- Reason: Using `[hidden]` keeps the element in the DOM for hydration/SSR and maintains stable DOM structure; use structural directives when elements must be removed entirely for logic or performance reasons.

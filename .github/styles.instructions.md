@@ -19,14 +19,22 @@ SCSS example (safe, minimal)
 
 html {
 	color-scheme: light dark;
+
+  /* Use Verdana as the main font for this project. Verdana files are included in
+     `src/assets/fonts/verdana-font-family/` (verdana.ttf, verdana-bold.ttf, verdana-bold-italic.ttf).
+     Load them in `src/fonts.scss` (or import here) via @font-face, then set typography to Verdana.
+  */
+
 	@include mat.theme((
-	color: (
-	primary: mat.$violet-palette,
-	tertiary: mat.$orange-palette,
-	theme-type: light,
-	),
-	typography: Roboto,
-	density: 0,
+	  color: (
+	    primary: mat.$violet-palette,
+	    tertiary: mat.$orange-palette,
+	    theme-type: light,
+	  ),
+	  typography: (
+	    font-family: 'Verdana, Geneva, sans-serif'
+	  ),
+	  density: 0,
 	));
 }
 
@@ -36,6 +44,23 @@ html {
 	primary-container: #84ffff,
 	));
 }
+
+/* Example @font-face you can place in `src/fonts.scss` (then import from `src/styles.scss`):
+@font-face {
+	font-family: 'Verdana';
+	src: url('/assets/fonts/verdana-font-family/verdana.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Verdana';
+	src: url('/assets/fonts/verdana-font-family/verdana-bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+*/
 ```
 
 Creating a custom palette (workflow)
@@ -48,6 +73,11 @@ Creating a custom palette (workflow)
 
 Where to put the theme file
 - Add `src/styles.theme.scss` and import it from `src/styles.scss` (or replace `src/styles.css` with `scss` and include the theme there). Ensure `angular.json` lists the resulting CSS in the `styles` array.
+
+Main font guidance
+- Use Verdana as the primary UI font for this project. Place the bundled Verdana files under `src/assets/fonts/verdana-font-family/` (already present in this repo).
+- Add the `@font-face` rules to `src/fonts.scss` and import that from `src/styles.scss` before your theme so typography tokens use Verdana.
+- Use the `typography` map in the Material theme (example above) to set the font-family to `'Verdana, Geneva, sans-serif'`.
 
 Accessibility / checks
 - Verify contrast using Material palette tool or automated checks. Ensure important text meets WCAG AA contrast.
