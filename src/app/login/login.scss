@@ -1,11 +1,13 @@
 .login-container {
     width: 100%;
-    transform: translateY(calc(50vh - 50%));
     display: flex;
     flex-flow: column nowrap;
     font-family: 'Verdana', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     justify-content: center;
     align-items: center;
+}
+.nav-container {
+    width: 100%;
 }
 
 .text-container {
