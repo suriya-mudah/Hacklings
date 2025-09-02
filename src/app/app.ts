@@ -3,8 +3,12 @@ import { Component, signal } from '@angular/core';
 @Component({
   selector: 'app-root',
   imports: [],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+ template: `
+  <div>
+    <h1>{{ title() }}</h1>
+  </div>
+ `,
+  styleUrl: './app.scss'
 })
 export class App {
   protected readonly title = signal('hacklings');
