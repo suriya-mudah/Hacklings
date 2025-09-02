@@ -6,16 +6,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, RouterLink],
-  template: `
-    <div>
-      <nav>
-        <a routerLink="/">Home</a>
-        <a routerLink="/login" style="margin-left:1rem">Login</a>
-      </nav>
-      <h1>{{ title() }}</h1>
-      <router-outlet></router-outlet>
-    </div>
-  `,
+  templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
 export class App {
