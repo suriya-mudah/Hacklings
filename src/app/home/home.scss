@@ -1,0 +1,18 @@
+body {
+  font-family: Verdana, sans-serif;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #80c5fe;
+  border-bottom: 1px solid #eee;
+}
+.navbar .spacer {
+  flex: 1;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+}
