@@ -5,12 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <div>
-      <h2>Login</h2>
-      <p>Please enter your credentials to log in.</p>
-    </div>
-  `,
+  templateUrl: './login.html',
   styleUrls: ['./login.scss']
 })
 export class Login {}
