@@ -1,46 +1,58 @@
 @use '@angular/material' as mat;
 
 // App color tokens (from your request)
-$app-primary: #03345d; // deep navy
-$app-accent: #f07c34;  // vivid orange
-$app-info:   #80c5fe;  // light blue
-$app-success:#86ff80;  // bright green
-$app-warn:   #e55b03;  // warm orange / warn
+$app-primary: #03345d; // deep navy — #03345d
+$app-accent: #f07c34;  // vivid orange — #f07c34
+$app-info:   #80c5fe;  // light blue — #80c5fe
+$app-success:#86ff80;  // bright green — #86ff80
+$app-warn:   #e55b03;  // warm orange / warn — #e55b03
+
+// Recommended "on" colors (text/icon colors that complement the seed colors)
+$app-primary-on: #ffffff;
+$app-accent-on:  #ffffff;
+$app-info-on:   #000000;
+$app-success-on:#000000;
+$app-warn-on:   #ffffff;
 
 // Export CSS custom properties so these colors can be used in runtime CSS too
 :root {
   --app-primary: #{$app-primary};
+  --app-primary-on: #{$app-primary-on};
   --app-accent:  #{$app-accent};
+  --app-accent-on:  #{$app-accent-on};
   --app-info:    #{$app-info};
+  --app-info-on:    #{$app-info-on};
   --app-success: #{$app-success};
+  --app-success-on: #{$app-success-on};
   --app-warn:    #{$app-warn};
+  --app-warn-on:    #{$app-warn-on};
 }
 
 // Minimal palette maps (useful for simple Material theming or lookups).
 // Each map includes a 500 swatch and a contrast submap for accessibility.
 $my-primary-palette: (
   500: $app-primary,
-  contrast: (500: #ffffff)
+  contrast: (500: $app-primary-on)
 );
 
 $my-accent-palette: (
   500: $app-accent,
-  contrast: (500: #ffffff)
+  contrast: (500: $app-accent-on)
 );
 
 $my-info-palette: (
   500: $app-info,
-  contrast: (500: #000000)
+  contrast: (500: $app-info-on)
 );
 
 $my-success-palette: (
   500: $app-success,
-  contrast: (500: #000000)
+  contrast: (500: $app-success-on)
 );
 
 $my-warn-palette: (
   500: $app-warn,
-  contrast: (500: #ffffff)
+  contrast: (500: $app-warn-on)
 );
 
 // Notes:
