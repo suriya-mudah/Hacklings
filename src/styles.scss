@@ -1,5 +1,11 @@
 /* Global styles and theme import */
-@use './custom-theme' as *;
-@use './styles.theme' as *;
+@use './styles/fonts.scss' as fonts;
+@use './styles/styles.theme' as *;
+@use './styles/custom-theme' as *;
+
+/* Global font */
+html, body {
+	font-family: 'Verdana', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
 
 /* You can add additional global styles below. */
