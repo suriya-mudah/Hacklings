@@ -5,15 +5,40 @@
   <app-prof-img></app-prof-img>
 </nav>
 
-<main>
-  <h2>Fjelltur</h2>
-  <div class="image-container">
-    <img src="assets/images/mountain.jpg" alt="Mountain Image" />
-    <div class="arrows">
-      <button><img src="assets/images/red-arrow.png" alt="Image" /></button>
-      <div class="spacer"></div>
-      <button><img src="assets/images/green-arrow.png" alt="Image" /></button>
+<div class="container">
+  @if (currentActivity) {
+  <div
+    class="swipe-card"
+    (pointerdown)="onPointerDown($event)"
+    (pointermove)="onPointerMove($event)"
+    (pointerup)="onPointerUp($event)"
+  >
+    <div class="card-gradient"></div>
+    <div class="card-content">
+      <h3>{{ currentActivity.title }}</h3>
+      <div class="card-details">
+        <span class="detail"
+          ><i class="icon-calendar"></i> {{ currentActivity.time }}</span
+        >
+        <span class="detail"
+          ><i class="icon-clock"></i> {{ currentActivity.duration }}</span
+        >
+        <span class="detail"
+          ><i class="icon-users"></i> {{ currentActivity.spots }}</span
+        >
+      </div>
+      <div class="card-tags">
+        @for (tag of currentActivity.tags; track tag) {
+        <span class="tag">{{ tag }}</span>
+        }
+      </div>
     </div>
   </div>
-  <p>#Fjell #Dagtid #Fjelltur #Gruppetur</p>
-</main>
+  }
+</div>
+<div class="instructions">
+  <div>
+    <p>Sveip høyre for JA</p>
+    <p>Sveip venstre for NEI</p>
+  </div>
+</div>
