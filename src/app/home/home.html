@@ -1,19 +1,42 @@
-<nav class="navbar">
-  <h1>eME</h1>
-  <app-menu-btn></app-menu-btn>
-  <div class="spacer"></div>
-  <app-prof-img></app-prof-img>
-</nav>
+<app-nav></app-nav>
 
-<main>
-  <h2>Fjelltur</h2>
-  <div class="image-container">
-    <img src="assets/images/mountain.jpg" alt="Mountain Image" />
-    <div class="arrows">
-      <button><img src="assets/images/red-arrow.png" alt="Image" /></button>
-      <div class="spacer"></div>
-      <button><img src="assets/images/green-arrow.png" alt="Image" /></button>
+<div class="container">
+  @if (currentActivity) {
+  <div class="swipe-card">
+    <div class="card-image">
+      <img src="{{ currentActivity.image }}" alt="Mountain Image" />
+    </div>
+    <div class="card-content">
+      <h3>{{ currentActivity.title }}</h3>
+      <div class="card-details">
+        <span class="detail">
+          <img src="assets/images/calendar-icon.png" class="icon" /> {{
+          currentActivity.time }}
+        </span>
+        <span class="detail">
+          <img src="assets/images/clock-icon.png" class="icon" /> {{
+          currentActivity.duration }}
+        </span>
+        <span class="detail">
+          <img src="assets/images/group-icon.png" class="icon" /> {{
+          currentActivity.spots }}
+        </span>
+      </div>
+      <div class="card-tags">
+        @for (tag of currentActivity.tags; track tag) {
+        <span class="tag">{{ tag }}</span>
+        }
+      </div>
     </div>
   </div>
-  <p>#Fjell #Dagtid #Fjelltur #Gruppetur</p>
-</main>
+  }
+
+  <div>
+    <button class="disagree-btn">
+      <img src="assets/images/disagree.png" alt="" />
+    </button>
+    <button class="agree-btn">
+      <img src="assets/images/agree.png" alt="" />
+    </button>
+  </div>
+</div>
