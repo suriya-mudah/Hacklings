@@ -10,11 +10,12 @@ This document explains the CSS custom properties the `app-button` component supp
 - `--button-secondary-color` — text color for the secondary variant.
 - `--button-ghost-color` — text color for the ghost variant.
 - `--button-ghost-outline` — outline/border color for the ghost variant.
+ - `--button-border-radius` — control the corner radius for the button (uses shared default if not set).
 
-These variables are optional. The component resolves colors in this order of precedence:
+These variables are optional. The component resolves colors in this order of precedence (now preferring your app tokens first):
 1. Per-instance/page CSS variable (the ones listed above).
-2. Angular Material system token (`--mat-sys-*`) when available.
-3. Repository-level app tokens (`--app-*`) if present.
+2. Repository-level app tokens (`--app-*`) when present.
+3. Angular Material system token (`--mat-sys-*`) when available.
 4. Hard-coded sensible fallback colors.
 
 ### How to override (page-local example)
@@ -25,7 +26,7 @@ Put overrides in the page/component stylesheet where you want the styles to appl
 	--button-bg: #0057b8;      /* primary background for login page */
 	--button-color: #ffffff;   /* primary text color */
 	--button-font-size: 1.05rem;
-	border-radius: 8px;        /* you can use regular CSS too */
+	--button-border-radius: 8px; /* prefer setting the token so the shared stylesheet uses it */
 }
 
 /* Variant-specific override */

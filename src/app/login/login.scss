@@ -33,10 +33,9 @@
 
 // Login page button overrides - local to the login page
 .btn-container app-button {
-    // primary button overrides
-    --button-bg: #0057b8; // dark blue
-    --button-color: #ffffff;
-    border-radius: 8px;
+    --button-bg: var(--app-primary, var(--mat-sys-primary));
+    --button-color: var(--app-info, var(--app-primary-on), var(--mat-sys-on-primary));
+    --button-border-radius: 10px;
     font-weight: 600;
     --button-font-size: 1.3rem;
     box-shadow: 0 6px 18px rgba(0, 86, 166, 0.12);
@@ -46,7 +45,7 @@
 // make the button full width on small screens
 @media (max-width: 480px) {
 	.btn-container app-button {
-		--button-bg: #004499;
+        /* --button-bg: #004499; */
 		display: block;
 		width: 100%;
 	}
@@ -76,12 +75,19 @@
 }
 
 .btn-container app-button[variant="ghost"] {
-    --button-ghost-color: #0057b8;
-    --button-ghost-outline: rgba(0, 87, 184, 0.18);
+    /* prefer system / theme values rather than hardcoded brand hex */
+    /* --button-ghost-color: #0057b8; */
+    /* --button-ghost-outline: rgba(0, 87, 184, 0.18); */
+     /* ghost text uses accent by default; when using a colored bg elsewhere
+         use the corresponding on-color via var(--app-accent-on) */
+    --button-ghost-color: var(--app-accent, var(--mat-sys-foreground));
+    --button-ghost-outline: var(--app-accent, var(--mat-sys-outline));
 }
 
 // Example: override the ghost variant for small links inside the login card
 .btn-container app-button[variant="ghost"] {
-	--button-ghost-color: #0057b8;
-	--button-ghost-outline: rgba(0, 87, 184, 0.18);
+    /* --button-ghost-color: #0057b8; */
+    /* --button-ghost-outline: rgba(0, 87, 184, 0.18); */
+    --button-ghost-color: var(--app-accent, var(--mat-sys-foreground));
+    --button-ghost-outline: var(--app-accent, var(--mat-sys-outline));
 }

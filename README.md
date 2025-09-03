@@ -1,59 +1,63 @@
 # Hacklings
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+An Angular 20 standalone application scaffold with server-side rendering (SSR) support.
 
-## Development server
+This README shows the common local developer commands and a brief note about branching conventions used in this repository.
 
-To start a local development server, run:
+Prerequisites
+- Node 20.x (recommended)
+- npm 11.x or compatible
+
+Quick setup
 
 ```bash
+npm install
+```
+
+Local development (browser)
+
+```bash
+# dev server with HMR
+npm start
+# or
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Build (browser + server)
 
 ```bash
-ng generate component component-name
+# Build the client and server bundles
+npm run build
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Serve the SSR build locally
 
 ```bash
-ng generate --help
+# after a successful build
+npm run serve:ssr:hacklings
 ```
 
-## Building
-
-To build the project run:
+Tests and formatting
 
 ```bash
-ng build
+# unit tests (Karma)
+npm test
+
+# format check / format (project uses Prettier)
+npm run format:check
+npm run format
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Notes about branches
+- `main` — the production branch. Releases and CI deploys are created from `main`.
+- `dev` — the development integration branch. Open feature or fix pull requests against `dev` and merge `dev` into `main` when ready for release.
 
-## Running unit tests
+Branching recommendations
+- Create short-lived feature branches from `dev` (for example: `feat/my-feature`).
+- Open a PR targeting `dev` and request reviews. Once approved and validated by CI, merge into `dev`.
+- Periodically a release PR or merge from `dev` -> `main` creates the production snapshot.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+More resources
+- Angular CLI docs: https://angular.dev/guide/cli
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+If you want, I can add a short CONTRIBUTING.md with these branch rules and a sample PR checklist.
