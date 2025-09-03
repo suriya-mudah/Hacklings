@@ -1,0 +1,55 @@
+
+
+/* Host layout */
+:host { display: inline-block; }
+
+/* Theme-aware tokens (use Material system tokens first, then app tokens, then hardcoded fallbacks) */
+button.app-button {
+	font-family: Verdana, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+	padding: 0.5rem 1rem;
+	border-radius: var(--button-border-radius, 6px);
+	border: none;
+	cursor: pointer;
+	font-size: var(--button-font-size, 0.95rem);
+	transition: background .12s ease, box-shadow .12s ease, transform .06s ease, color .12s ease;
+	/* Primary by default; allow per-instance override via --button-bg / --button-color */
+	/* Prefer app-level CSS variables, then Material system vars, then safe fallbacks */
+	/* Prefer app-level tokens first, then Material system tokens, then hardcoded */
+	background: var(--button-bg, var(--app-primary, var(--mat-sys-primary, #03345d)));
+	color: var(--button-color, var(--app-primary-on, var(--mat-sys-on-primary, #ffffff)));
+	box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+	border: 1px solid transparent;
+}
+
+/* Primary hover: slightly darker mix */
+button.app-button.primary:hover:not(:disabled),
+button.app-button:hover:not(:disabled) {
+	background: color-mix(in srgb, var(--button-bg, var(--app-primary, var(--mat-sys-primary, #03345d))) 88%, black 12%);
+}
+
+/* Secondary variant uses secondary tokens */
+button.app-button.secondary {
+	/* Map secondary to the app accent token by default */
+	background: var(--button-secondary-bg, var(--app-accent, var(--mat-sys-secondary, #f07c34)));
+	color: var(--button-secondary-color, var(--app-accent-on, var(--mat-sys-on-secondary, #ffffff)));
+}
+
+button.app-button.secondary:hover:not(:disabled) {
+	background: color-mix(in srgb, var(--button-secondary-bg, var(--app-accent, var(--mat-sys-secondary, #f07c34))) 90%, black 10%);
+}
+
+/* Ghost variant: transparent with a subtle outline */
+button.app-button.ghost {
+	background: transparent;
+	/* Ghost links default to the app accent (or fallback to currentColor) */
+	color: var(--button-ghost-color, var(--app-accent, var(--mat-sys-foreground, currentColor)));
+	border: 1px solid var(--button-ghost-outline, var(--app-accent, var(--mat-sys-outline, currentColor)));
+}
+
+button.app-button:disabled {
+	opacity: .5;
+	cursor: not-allowed;
+	filter: grayscale(.05);
+}
+button.app-button.full-width { width: 100%; display: block; }
+.label { margin-left: .4rem; }

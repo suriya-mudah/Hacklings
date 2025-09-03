@@ -1,13 +1,25 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Hacklings</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hacklings</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="logo.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  <!-- Preload bundled Verdana fonts to reduce FOUT for above-the-fold UI -->
+  <link rel="preload" href="/assets/fonts/verdana-font-family/verdana.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/assets/fonts/verdana-font-family/verdana-bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/assets/fonts/verdana-font-family/verdana-bold-italic.ttf" as="font" type="font/ttf" crossorigin>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
 </html>
