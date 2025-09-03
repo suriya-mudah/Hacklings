@@ -1,21 +1,10 @@
-// import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MenuBtn } from './components/menu-btn/menu-btn';
-import { ProfImg } from './components/prof-img/prof-img';
-
-// @Component({
-//   selector: 'app-home',
-//   standalone: true,
-//   imports: [CommonModule, MenuBtn, ProfImg],
-//   templateUrl: './home.html',
-//   styleUrls: ['./home.scss'],
-// })
-// export class Home {}
-
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NavComponent } from '@app/shared/components/nav/nav';
 
 interface Activity {
   title: string;
+  image: string;
   time: string;
   duration: string;
   spots: string;
@@ -24,7 +13,7 @@ interface Activity {
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, MenuBtn, ProfImg],
+  imports: [CommonModule, NavComponent],
   templateUrl: './home.html',
   styleUrls: ['./home.scss'],
 })
@@ -32,6 +21,7 @@ export class Home {
   activities: Activity[] = [
     {
       title: 'Tur til Freikollen',
+      image: 'assets/images/mountain.jpg',
       time: 'Helgen / Fleksibel',
       duration: '2 timer',
       spots: 'Plass til flere +',
@@ -39,6 +29,7 @@ export class Home {
     },
     {
       title: 'Sykkeltur i marka',
+      image: 'assets/images/sykkeltur.jpg',
       time: 'Lørdag',
       duration: '3 timer',
       spots: 'Plass til 2',
@@ -52,37 +43,6 @@ export class Home {
   cardRotate = 0;
   get currentActivity() {
     return this.activities[this.currentIndex];
-  }
-
-  private startX = 0;
-  private startY = 0;
-  private dragging = false;
-
-  onPointerDown(event: PointerEvent) {
-    this.startX = event.clientX;
-    this.startY = event.clientY;
-    this.dragging = true;
-  }
-
-  onPointerMove(event: PointerEvent) {
-    if (!this.dragging) return;
-    this.cardX = event.clientX - this.startX;
-    this.cardY = event.clientY - this.startY;
-    this.cardRotate = this.cardX / 10;
-  }
-
-  onPointerUp(event: PointerEvent) {
-    if (!this.dragging) return;
-    this.dragging = false;
-    // Swipe threshold
-    if (this.cardX > 100) {
-      this.nextActivity();
-    } else if (this.cardX < -100) {
-      this.prevActivity();
-    }
-    this.cardX = 0;
-    this.cardY = 0;
-    this.cardRotate = 0;
   }
 
   nextActivity() {
