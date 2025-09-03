@@ -27,7 +27,7 @@
               }
             ],
             "styles": [
-              "src/custom-theme.scss",
+              "src/styles/custom-theme.scss",
               "src/styles.scss"
             ],
             "server": "src/main.server.ts",

@@ -1,0 +1,51 @@
+@use '@angular/material' as mat;
+
+// App color tokens (from your request)
+$app-primary: #03345d; // deep navy
+$app-accent: #f07c34;  // vivid orange
+$app-info:   #80c5fe;  // light blue
+$app-success:#86ff80;  // bright green
+$app-warn:   #e55b03;  // warm orange / warn
+
+// Export CSS custom properties so these colors can be used in runtime CSS too
+:root {
+  --app-primary: #{$app-primary};
+  --app-accent:  #{$app-accent};
+  --app-info:    #{$app-info};
+  --app-success: #{$app-success};
+  --app-warn:    #{$app-warn};
+}
+
+// Minimal palette maps (useful for simple Material theming or lookups).
+// Each map includes a 500 swatch and a contrast submap for accessibility.
+$my-primary-palette: (
+  500: $app-primary,
+  contrast: (500: #ffffff)
+);
+
+$my-accent-palette: (
+  500: $app-accent,
+  contrast: (500: #ffffff)
+);
+
+$my-info-palette: (
+  500: $app-info,
+  contrast: (500: #000000)
+);
+
+$my-success-palette: (
+  500: $app-success,
+  contrast: (500: #000000)
+);
+
+$my-warn-palette: (
+  500: $app-warn,
+  contrast: (500: #ffffff)
+);
+
+// Notes:
+// - Import this file from `src/custom-theme.scss` and map these palettes into
+//   Angular Material theming helpers when you build your complete theme.
+// - For a full Material palette, generate swatches (50..900, A100..) or use
+//   `mat.define-palette(...)` with a seed map. The maps above are intentionally
+//   minimal and safe to use as app tokens or to seed other tooling.

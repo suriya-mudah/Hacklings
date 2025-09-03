@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent } from '../shared/button.component';
-import { NavComponent } from '../shared/nav.component';
+import { ButtonComponent } from '../shared/components/button/button';
+import { NavComponent } from '../shared/components/nav/nav';
 @Component({
   selector: 'app-login',
   standalone: true,

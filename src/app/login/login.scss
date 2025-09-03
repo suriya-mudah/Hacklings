@@ -1,13 +1,21 @@
 .login-container {
     width: 100%;
+    min-height: 100dvh;
     display: flex;
     flex-flow: column nowrap;
     font-family: 'Verdana', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 }
 .nav-container {
     width: 100%;
+}
+.content-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+     margin: auto 0;
 }
 
 .text-container {
@@ -32,6 +40,7 @@
     font-weight: 600;
     --button-font-size: 1.3rem;
     box-shadow: 0 6px 18px rgba(0, 86, 166, 0.12);
+    margin-top: 0.5rem;
 }
 
 // make the button full width on small screens

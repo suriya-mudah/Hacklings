@@ -1,0 +1,12 @@
+<button
+	class="app-button"
+	[attr.type]="type"
+	[disabled]="disabled"
+	[class.primary]="variant === 'primary'"
+	[class.secondary]="variant === 'secondary'"
+	[class.ghost]="variant === 'ghost'"
+	[class.full-width]="fullWidth"
+	(click)="onClick($event)">
+	<ng-content></ng-content>
+	<span [hidden]="!label" class="label" aria-hidden="{{ !label }}">{{ label }}</span>
+</button>

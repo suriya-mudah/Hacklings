@@ -14,6 +14,10 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+  <!-- Preload bundled Verdana fonts to reduce FOUT for above-the-fold UI -->
+  <link rel="preload" href="/assets/fonts/verdana-font-family/verdana.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/assets/fonts/verdana-font-family/verdana-bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/assets/fonts/verdana-font-family/verdana-bold-italic.ttf" as="font" type="font/ttf" crossorigin>
   </head>
   <body>
     <app-root></app-root>

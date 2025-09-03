@@ -1,8 +1,7 @@
 /* Global styles and theme import */
-@use './custom-theme' as *;
-@use './styles.theme' as *;
-
-@use './fonts.scss' as fonts;
+@use './styles/fonts.scss' as fonts;
+@use './styles/styles.theme' as *;
+@use './styles/custom-theme' as *;
 
 /* Global font */
 html, body {
