@@ -53,9 +53,32 @@ Auto-scan summary (performed automatically)
 - Result: No occurrences found in repository source files requiring an automatic one-to-one replacement.
 - Action: No code changes applied. If you want, I can run `ng version` and re-run this scan as part of a CI check and/or open a PR with suggested fixes if any new deprecated usages appear.
 
-Note: `*ngIf` deprecation guidance
-- This repository treats `*ngIf` as deprecated in favor of non-structural alternatives in surfaced templates (for example using `[hidden]`, CSS utilities, or component-level logic) to preserve template shape for SSR/hydration and to avoid DOM reflow where possible.
-- Example replacement:
-  - Deprecated: `<span *ngIf="label">{{ label }}</span>`
-  - Preferred: `<span [hidden]="!label" aria-hidden="{{ !label }}">{{ label }}</span>`
-- Reason: Using `[hidden]` keeps the element in the DOM for hydration/SSR and maintains stable DOM structure; use structural directives when elements must be removed entirely for logic or performance reasons.
+Note: prefer Angular control-flow blocks (`@if` / `@for`)
+
+- Rationale: This repository prefers using Angular's newer control-flow blocks (`@if` and `@for`) in templates where preserving DOM shape for SSR/hydration and clearer intent helps reduce hydration mismatches and improve readability. These blocks provide an explicit, compact syntax for conditional and iterative rendering and are the recommended pattern when available for your Angular toolchain.
+
+- Examples:
+  - Conditional rendering:
+
+    @if (currentActivity) {
+      <div class="swipe-card"> ... </div>
+    }
+
+  - Iteration with tracking:
+
+    @for (tag of currentActivity.tags; track tag) {
+      <span class="tag">{{ tag }}</span>
+    }
+
+- Compatibility & fallbacks:
+  - The `@if` / `@for` syntax requires a compatible Angular template parser/language-service. If your local environment or CI reports parse errors for control-flow blocks, either:
+    1) Ensure your Angular packages and `@angular/language-service` are on a version that supports control-flow blocks (Angular 20.x+ or the experimental `next` channel as appropriate). Use `npx ng version` and `npm install` to align versions.
+    2) If upgrading is not possible, fall back to canonical structural directives and explicit `trackBy` functions:
+       - Use `*ngIf="exp"` or `[hidden]` depending on hydration requirements.
+       - Use `*ngFor="let item of items; trackBy: trackByFn"` for lists and implement a `trackBy` method in the component.
+
+- References:
+  - Angular control-flow docs: https://angular.dev/guide/control-flow-structures
+  - Experimental control-flow guidance: https://angular.dev/guide/experimental/control-flow
+
+Use `@if`/`@for` where your toolchain supports them; otherwise prefer `*ngFor` with `trackBy` and consider `[hidden]` when you need stable DOM shape for SSR/hydration.

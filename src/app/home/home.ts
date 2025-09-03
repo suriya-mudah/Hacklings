@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavComponent } from '@app/shared/components/nav/nav';
+import { Card } from '@app/shared/components/card/card';
 
 interface Activity {
   title: string;
@@ -13,7 +14,8 @@ interface Activity {
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, NavComponent],
+  standalone: true,
+  imports: [CommonModule, NavComponent, Card],
   templateUrl: './home.html',
   styleUrls: ['./home.scss'],
 })

@@ -1,0 +1,26 @@
+@if (activity) {
+	<div class="swipe-card">
+		<div class="card-image">
+			<img src="{{ activity.image }}" alt="{{ activity.title }}" />
+		</div>
+		<div class="card-content">
+			<h3>{{ activity.title }}</h3>
+			<div class="card-details">
+				<span class="detail">
+					<img src="/assets/images/calendar-icon.png" class="icon" /> {{ activity.time }}
+				</span>
+				<span class="detail">
+					<img src="/assets/images/clock-icon.png" class="icon" /> {{ activity.duration }}
+				</span>
+				<span class="detail">
+					<img src="/assets/images/group-icon.png" class="icon" /> {{ activity.spots }}
+				</span>
+			</div>
+					<div class="card-tags">
+						@for (tag of activity.tags; track tag) {
+							<span class="tag">{{ tag }}</span>
+						}
+					</div>
+		</div>
+	</div>
+}
