@@ -29,18 +29,24 @@
   margin: 0;
   font-size: 24px;
 }
-.img-profile button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #ff7300;
-  border: none;
-  cursor: pointer;
-  margin-right: 0;
+.img-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img-link {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ff7300;
+    border: none;
+    cursor: pointer;
+    margin-right: 0;
 }
 .img-profile img {
-  width: 90%;
-  height: 90%;
-  border-radius: 50%;
-  object-fit: cover;
+    width: 90%;
+    border-radius: 50%;
+    object-fit: cover;
 }
