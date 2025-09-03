@@ -7,18 +7,19 @@
 @use '@angular/material' as mat;
 @use './styles.theme' as theme;
 
-// Define a named theme map that can be referenced as $myTheme
+// Use the palette maps defined in `styles.theme.scss`. The project stores
+// minimal palette maps (a 500 swatch + contrast) which can be referenced
+// directly by the theming mixin. This approach avoids calling helpers that
+// may not be available in older Material/Sass host environments.
 $myTheme: (
   color: (
-    // use the custom primary, accent and tertiary palettes defined in styles.theme.scss
     primary: theme.$my-primary-palette,
     accent: theme.$my-accent-palette,
-    tertiary: theme.$my-tertiary-palette,
+    // optional tertiary/info palette
+    tertiary: theme.$my-info-palette,
     // explicitly set theme-type if desired (light|dark)
     theme-type: light,
   ),
-  // Omit `typography` to use Material defaults or define a typography config here.
-  // Density accepts numeric levels in the theming mixin
   density: 0,
 );
 
@@ -33,9 +34,8 @@ body {
   // user's system settings.
   color-scheme: light;
 
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
+  // Use Angular Material system-level CSS variables as sensible defaults for
+  // background, text color and typography.
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
