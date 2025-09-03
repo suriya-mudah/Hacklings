@@ -29,27 +29,32 @@ export class Home {
     },
     {
       title: 'Sykkeltur i marka',
-      image: 'assets/images/sykkeltur.jpg',
+      image: 'assets/images/sycle.jpg',
       time: 'Lørdag',
       duration: '3 timer',
       spots: 'Plass til 2',
       tags: ['Middels', 'Sykkel', 'Lørdag'],
     },
+    {
+      title: 'Paddel',
+      image: 'assets/images/padel.jpg',
+      time: 'Lørdag 18:00',
+      duration: '2 timer',
+      spots: 'Plass til 3',
+      tags: ['Lett', 'Paddel', 'Lørdag', 'Kveld'],
+    },
     // ...add more activities as needed
   ];
   currentIndex = 0;
-  cardX = 0;
-  cardY = 0;
-  cardRotate = 0;
   get currentActivity() {
     return this.activities[this.currentIndex];
   }
 
-  nextActivity() {
-    this.currentIndex = (this.currentIndex + 1) % this.activities.length;
-  }
-  prevActivity() {
-    this.currentIndex =
-      (this.currentIndex - 1 + this.activities.length) % this.activities.length;
+  disagreeActivity() {
+    if (this.currentIndex < this.activities.length - 1) {
+      this.currentIndex = this.currentIndex + 1;
+    } else {
+      this.currentIndex = 0;
+    }
   }
 }

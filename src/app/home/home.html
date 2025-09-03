@@ -4,7 +4,7 @@
   @if (currentActivity) {
   <div class="swipe-card">
     <div class="card-image">
-      <img src="{{ currentActivity.image }}" alt="Mountain Image" />
+      <img src="{{ currentActivity.image }}" alt="Activity Image" />
     </div>
     <div class="card-content">
       <h3>{{ currentActivity.title }}</h3>
@@ -32,7 +32,7 @@
   }
 
   <div>
-    <button class="disagree-btn">
+    <button class="disagree-btn" (click)="disagreeActivity()">
       <img src="assets/images/disagree.png" alt="" />
     </button>
     <button class="agree-btn">
