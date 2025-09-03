@@ -1,114 +1,27 @@
-body {
-  font-family: Verdana, sans-serif;
-}
-.navbar {
-  display: flex;
-  align-items: center;
-  padding: 8px 20px;
-  background-color: #80c5fe;
-  border-bottom: 1px solid #eee;
-}
-.navbar .spacer {
-  flex: 1;
-}
-
-h1 {
-  margin: 0;
-  font-size: 30px;
-  color: #0c3a62;
-}
-// h2 {
-//   margin: 0;
-//   font-size: 40px;
-//   color: #0c3a62;
-// }
-
-// main {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   min-height: 85vh;
-// }
-
-// .image-container {
-//   max-width: 800px;
-//   margin-top: 20px;
-//   text-align: center;
-//   position: relative; // Added for positioning arrows
-// }
-
-// .image-container img {
-//   width: 100%;
-//   height: auto;
-//   border-radius: 8px;
-//   display: block;
-// }
-
-// button {
-//   background: none;
-//   border: none;
-//   cursor: pointer;
-//   border-radius: 50%;
-//   padding: 0;
-// }
-// .arrows {
-//   position: absolute;
-//   top: 50%;
-//   left: 0;
-//   width: 100%;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   transform: translateY(-50%);
-//   pointer-events: none;
-// }
-// .arrows button {
-//   pointer-events: auto;
-// }
-// .spacer {
-//   flex: 1;
-// }
-// .arrows img {
-//   width: 50px;
-//   height: 50px;
-//   margin: 0 5px;
-// }
-
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 88vh;
   background: #e8e8e8;
 }
 
 .swipe-card {
-  width: 90%;
-  max-width: 260px;
+  width: 35%;
   background: #fff;
   border-radius: 24px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  position: absolute;
-  top: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: transform 0.2s cubic-bezier(0.4, 2, 0.6, 1);
-  cursor: grab;
-  user-select: none;
-  will-change: transform;
+  overflow: hidden;
 }
 
 .card-image {
   width: 100%;
-  height: 120px;
   border-radius: 20px 20px 0 0;
-  background: linear-gradient(120deg, #d2f7ef 0%, #b6e0f7 100%);
-  margin-bottom: 12px;
 }
 
 .card-content {
   padding: 16px;
+  width: 100%;
   h3 {
     margin: 0 0 8px 0;
     font-size: 1.1rem;
@@ -120,8 +33,14 @@ h1 {
     color: #666;
     margin-bottom: 8px;
     display: flex;
+    flex-direction: column;
     gap: 8px;
-    align-items: center;
+    align-items: left;
+    .icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
     span {
       display: flex;
       align-items: center;
@@ -142,11 +61,33 @@ h1 {
   }
 }
 
-.instructions {
-  font-size: 1.7rem;
-  color: #222;
-  font-family: "Segoe UI", Arial, sans-serif;
-  p {
-    margin: 0 0 8px 0;
+button {
+  width: 60px;
+  height: 60px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.agree-btn {
+  background: #86ff80;
+}
+.agree-btn:hover {
+  background: rgb(0, 185, 0);
+}
+.disagree-btn {
+  img {
+    width: 70%;
   }
+  background: #e55b03;
+}
+.disagree-btn:hover {
+  background: #b33a00;
+}
+
+button img {
+  width: 100%;
 }
