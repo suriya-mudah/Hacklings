@@ -1,14 +1,14 @@
 <app-nav></app-nav>
-
-<div class="container">
-  <app-card [activity]="currentActivity"></app-card>
-
-  <div class="controls">
-    <button class="disagree-btn" (click)="prevActivity()">
-      <img src="/assets/images/disagree.png" alt="disagree" />
-    </button>
-    <button class="agree-btn" (click)="nextActivity()">
-      <img src="/assets/images/agree.png" alt="agree" />
-    </button>
-  </div>
-</div>
+@if (!startActivity){
+<app-activity-card
+  [startActivity]="startActivity"
+  (startActivityChange)="startActivity = $event"
+  (activityTitle)="activityTitle = $event"
+></app-activity-card>
+} @else {
+<app-start-card
+  [startActivity]="startActivity"
+  [activityTitle]="activityTitle"
+  (startActivityChange)="startActivity = $event"
+></app-start-card>
+}
