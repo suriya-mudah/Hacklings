@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavComponent } from '@app/shared/components/nav/nav';
-import { title } from 'process';
 
 interface ProfileData {
   shortName: string;

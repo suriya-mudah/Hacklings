@@ -70,9 +70,8 @@ Hacklings is an Angular 20 standalone application scaffold with server-side rend
 - Framework: Angular 20 (CLI + SSR)
 - Pages/components:
 	- Home — implemented and currently shown by the app
-	- Profile — component and template exist (uses typed mock data and an SVG avatar) but may not be reachable via routing yet
-	- Login — present as a component/file but not yet wired into navigation/routing
-	- Note: Profile and Login are not linked from the UI; you must type their routes directly (for example `/profile` or `/login`) to reach them.
+	- Profile — component and template exist (uses typed mock data and an SVG avatar) and is reachable via the nav avatar (routes to `/profile`).
+	- Login — present as a component/file but not yet linked from the UI; you must type `/login` to reach it or wire a nav link.
 - Theming & fonts: Verdana is included via `src/styles/fonts.scss` and global theme tokens are exported as CSS vars (for example `--app-primary`, `--app-info`).
 - Template style: this repo uses the experimental `@if` / `@for` control-flow syntax in some templates (project builds with current toolchain). Consider converting to canonical `*ngIf` / `*ngFor` if you need broader tooling compatibility.
 
