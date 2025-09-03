@@ -1,0 +1,44 @@
+<div class="container">
+  @if (currentActivity) {
+  <div class="swipe-card">
+    <div class="card-image">
+      <img src="{{ currentActivity.image }}" alt="Activity Image" />
+    </div>
+    <div class="card-content">
+      <h3>{{ currentActivity.title }}</h3>
+      <div class="card-details">
+        <span class="detail">
+          <img src="assets/images/calendar-icon.png" class="icon" /> {{
+          currentActivity.time }}
+        </span>
+        <span class="detail">
+          <img src="assets/images/clock-icon.png" class="icon" /> {{
+          currentActivity.duration }}
+        </span>
+        <span class="detail">
+          <img src="assets/images/group-icon.png" class="icon" /> {{
+          currentActivity.spots }}
+        </span>
+      </div>
+      <div class="card-tags">
+        @for (tag of currentActivity.tags; track tag) {
+        <span class="tag">{{ tag }}</span>
+        }
+      </div>
+    </div>
+  </div>
+  }
+
+  <div>
+    <button class="disagree-btn" (click)="disagreeActivity()">
+      <img src="assets/images/disagree.png" alt="" />
+    </button>
+    <button
+      class="agree-btn"
+      (click)="agreeActivity()"
+      (click)="selectActivity()"
+    >
+      <img src="assets/images/agree.png" alt="" />
+    </button>
+  </div>
+</div>

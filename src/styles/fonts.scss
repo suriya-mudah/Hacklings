@@ -1,7 +1,3 @@
-/* Load Verdana from the Angular assets folder. Use relative `assets/...`
-   paths so the files resolve correctly even when the app is served from a
-   subpath. Include local() fallbacks so the system-installed Verdana is used
-   immediately when available, and keep font-display: swap for performance. */
 @font-face {
   font-family: 'Verdana';
   src: local('Verdana'), local('Verdana-Regular'),
@@ -14,7 +10,7 @@
 @font-face {
   font-family: 'Verdana';
   src: local('Verdana Bold'), local('Verdana-Bold'),
-       url('/assets/fonts/verdana-font-family/verdana-bold.ttf') format('truetype');
+  url('/assets/fonts/verdana-font-family/verdana-bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -23,7 +19,7 @@
 @font-face {
   font-family: 'Verdana';
   src: local('Verdana Bold Italic'), local('Verdana-BoldItalic'),
-       url('/assets/fonts/verdana-font-family/verdana-bold-italic.ttf') format('truetype');
+  url('/assets/fonts/verdana-font-family/verdana-bold-italic.ttf') format('truetype');
   font-weight: 700;
   font-style: italic;
   font-display: swap;
