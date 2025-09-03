@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { NavComponent } from '@app/shared/components/nav/nav';
 import { ActivityCard } from './components/activity-card/activity-card';
 import { StartCard } from './components/start-card/start-card';
-import { Activity } from '@app/interfaces';
 
 @Component({
   selector: 'app-home',

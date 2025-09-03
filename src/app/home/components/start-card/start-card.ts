@@ -1,5 +1,4 @@
 import { Component, Input, input, output } from '@angular/core';
-import { Activity } from '@app/interfaces';
 
 @Component({
   selector: 'app-start-card',
